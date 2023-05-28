@@ -18,10 +18,10 @@ const compressedLogFilename = `${statefulSetName}-logs-` + new Date().toISOStrin
 
 // Create an S3 client with the specified AWS region and access credentials.
 const s3 = new S3Client({
-  region: "us-east-1", 
+  region: "YOUR_REGION", 
   credentials: {
-    accessKeyId: 'AKIA4SZB7MWLELVDVG5J',
-    secretAccessKey: '9okzR7XjV0XyCEn7buNZ8+M7Q6kleGF6BpIYpDds',
+    accessKeyId: 'ACCESS_KEY_ID',
+    secretAccessKey: 'SECRET_ACCESS_KEY_ID',
   },
 });
 
