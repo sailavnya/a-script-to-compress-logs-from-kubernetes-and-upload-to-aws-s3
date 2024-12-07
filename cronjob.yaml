@@ -1,0 +1,33 @@
+# cron-job.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mysql-logs
+spec:
+  schedule: "*/10 * * * *"
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cronjob
+            image: sailavanya2000/logs-cronjob:latest
+            command: ["npm", "start"]
+            env:
+            - name: DB_HOST
+              value: "database"
+            - name: DB_USER
+              value: "admin"
+            - name: DB_PASS
+              value: "123456"
+            resources:
+              requests:
+                memory: "128Mi"
+                cpu: "250m"
+              limits:
+                memory: "256Mi"
+                cpu: "500m"
+          restartPolicy: Never
