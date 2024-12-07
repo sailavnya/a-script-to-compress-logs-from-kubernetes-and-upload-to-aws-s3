@@ -17,3 +17,15 @@
     "@kubernetes/client-node": "^0.18.1"
   }
 }
+
+#comments
+
+/*
+
+If you're copying the package.json file into the Docker image, ensure it uses LF (Unix-style) line endings instead of CRLF (Windows-style).
+Solution:
+Convert the file to LF endings using an editor or the command:
+bash
+Copy code
+dos2unix package.json
+*/
